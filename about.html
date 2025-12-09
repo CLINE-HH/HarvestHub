@@ -5,7 +5,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - HarvestHub</title>
     <link rel="stylesheet" href="css/style.css">
-
+    <style>
+        /* Additional About Page Styles */
+        .about-hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.1), rgba(76, 175, 80, 0.1));
+            border-radius: 20px;
+            margin-bottom: 3rem;
+        }
+        
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .mission-card, .vision-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        
+        .team-section {
+            margin: 4rem 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .team-member {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        
+        .team-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            border: 4px solid #2e7d32;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+        }
+        
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .team-photo img:hover {
+            transform: scale(1.05);
+        }
+        
+        .team-info h3 {
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .team-info p {
+            color: #666;
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .value-card h4 {
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+        }
+        
+        .contact-card h4 {
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-photo {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -48,50 +188,54 @@
         <!-- Meet Our Team -->
         <div class="team-section">
             <h2 style="text-align: center; margin-bottom: 2rem;">👥 Meet Our Founders</h2>
-            <p style="text-align: center; color: #666; max-width: 800px; margin: 0 auto 3rem;">Click on any photo to upload your actual team photo</p>
+            <p style="text-align: center; color: #666; max-width: 800px; margin: 0 auto 3rem;">Our dedicated team of urban gardening experts</p>
             
             <div class="team-grid">
                 <!-- Founder 1 -->
                 <div class="team-member">
-                    <div class="team-photo" onclick="document.getElementById('photo1').click()" id="photoContainer1">
-                        <div class="photo-placeholder">👨‍🌾</div>
+                    <div class="team-photo">
+                        <!-- Replace this img src with actual photo URL -->
+                        <img src="photos/lorin.jpg" 
+                             alt="Kristia Lorraine Lapuz" 
+                             onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍🌾</text></svg>'">
                     </div>
-                    <input type="file" id="photo1" class="photo-upload" accept="image/*" onchange="previewImage(event, 'photoContainer1')">
                     
                     <div class="team-info">
                         <h3>Kristia Lorraine Lapuz</h3>
                         <p><strong>Head Gardener & UX Expert</strong></p>
                         <p>Urban farming expert with 10+ years experience in container gardening and small space optimization. Lorraine started HarvestHub to share her passion for making gardening accessible in urban environments.</p>
-                    
                     </div>
                 </div>
                 
                 <!-- Founder 2 -->
                 <div class="team-member">
-                    <div class="team-photo" onclick="document.getElementById('photo2').click()" id="photoContainer2">
-                        <div class="photo-placeholder">👩‍🌾</div>
+                    <div class="team-photo">
+                        <!-- Replace this img src with actual photo URL -->
+                        <img src="photos/daciple.jpg" 
+                             alt="Daciple Rose Mateo" 
+                             onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👩‍🌾</text></svg>'">
                     </div>
-                    <input type="file" id="photo2" class="photo-upload" accept="image/*" onchange="previewImage(event, 'photoContainer2')">
                     
                     <div class="team-info">
                         <h3>Daciple Rose Mateo</h3>
-                        <p><strong>Founder</strong></p>
+                        <p><strong>Founder & Container Gardening Specialist</strong></p>
                         <p>Specializes in balcony and rooftop gardening solutions. Daciple brings innovative approaches to urban farming and has developed numerous space-efficient growing systems for apartments and small homes.</p>
                     </div>
                 </div>
                 
                 <!-- Founder 3 -->
                 <div class="team-member">
-                    <div class="team-photo" onclick="document.getElementById('photo3').click()" id="photoContainer3">
-                        <div class="photo-placeholder">🧑‍🌾</div>
+                    <div class="team-photo">
+                        <!-- Replace this img src with actual photo URL -->
+                        <img src="photos/krystal.jpg" 
+                             alt="Krystal Cuarteros" 
+                             onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧑‍🌾</text></svg>'">
                     </div>
-                    <input type="file" id="photo3" class="photo-upload" accept="image/*" onchange="previewImage(event, 'photoContainer3')">
                     
                     <div class="team-info">
                         <h3>Krystal Cuarteros</h3>
                         <p><strong>Urban Farming Specialist</strong></p>
-                        <p>Vertical gardening innovator and community organizer. Sam focuses on developing educational programs and creating inclusive gardening communities in urban areas.</p>
-
+                        <p>Vertical gardening innovator and community organizer. Krystal focuses on developing educational programs and creating inclusive gardening communities in urban areas.</p>
                     </div>
                 </div>
             </div>
@@ -128,7 +272,7 @@
             <div class="contact-info">
                 <div class="contact-card">
                     <h4>📧 Email</h4>
-                    <p>daciplerosemateo@gamil.com</p>
+                    <p>daciplerosemateo@gmail.com</p>
                 </div>
                 <div class="contact-card">
                     <h4>📍 Location</h4>
@@ -136,7 +280,7 @@
                 </div>
                 <div class="contact-card">
                     <h4>👥 Community</h4>
-                    <p>Join our facebook group</p>
+                    <p>Join our Facebook group</p>
                 </div>
                 <div class="contact-card">
                     <h4>📰 Newsletter</h4>
@@ -145,8 +289,7 @@
             </div>
             
             <div style="text-align: center; margin-top: 3rem;">
-                <a href="index.html" class="btn btn-primary">🏠 Back to Dashboard</a>
-
+                <a href="index.html" class="btn btn-primary">🏠 Back to Home</a>
             </div>
         </div>
     </div>
@@ -156,93 +299,33 @@
     </footer>
 
     <script>
-      // Remove or comment out this check in about.html:
-/*
-// Check login - REMOVED to allow public access
-const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-if (!currentUser) {
-    window.location.href = 'login.html';
-}
-*/
+        // Navigation based on login status
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        const navLinks = document.querySelector('.nav-links');
 
-// Keep the navigation update but remove login requirement
-const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-const navLinks = document.querySelector('.nav-links');
-
-if (currentUser) {
-    // User is logged in
-    navLinks.innerHTML = `
-        <li><a href="index.html">Dashboard</a></li>
-        <li><a href="videos.html">Videos</a></li>
-        <li><a href="tutorials.html">Tutorials</a></li>
-        <li><a href="about.html" style="color: #2e7d32; background: rgba(46, 125, 50, 0.1);">About</a></li>
-        <li><a href="#" class="btn btn-outline" onclick="logout()">Logout</a></li>
-    `;
-} else {
-    // User is not logged in - About is accessible
-    navLinks.innerHTML = `
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" style="color: #2e7d32; background: rgba(46, 125, 50, 0.1);">About</a></li>
-        <li><a href="login.html" class="btn btn-outline">Sign In</a></li>
-        <li><a href="signup.html" class="btn btn-primary">Get Started</a></li>
-    `;
-}
-
-        // Save photo to localStorage
-        function savePhotoToStorage(containerId, imageData) {
-            const savedPhotos = JSON.parse(localStorage.getItem('teamPhotos')) || {};
-            savedPhotos[containerId] = imageData;
-            localStorage.setItem('teamPhotos', JSON.stringify(savedPhotos));
+        if (currentUser) {
+            // User is logged in
+            navLinks.innerHTML = `
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a href="about.html" style="color: #2e7d32; background: rgba(46, 125, 50, 0.1);">About</a></li>
+                <li><a href="#" class="btn btn-outline" onclick="logout()">Logout</a></li>
+            `;
+        } else {
+            // User is not logged in - About is accessible
+            navLinks.innerHTML = `
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" style="color: #2e7d32; background: rgba(46, 125, 50, 0.1);">About</a></li>
+                <li><a href="login.html" class="btn btn-outline">Sign In</a></li>
+                <li><a href="signup.html" class="btn btn-primary">Get Started</a></li>
+            `;
         }
 
-        // Load saved photos on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedPhotos = JSON.parse(localStorage.getItem('teamPhotos')) || {};
-            
-            // Load each saved photo
-            Object.keys(savedPhotos).forEach(containerId => {
-                const container = document.getElementById(containerId);
-                if (container) {
-                    container.innerHTML = '';
-                    const img = document.createElement('img');
-                    img.src = savedPhotos[containerId];
-                    img.alt = 'Team member photo';
-                    img.style.width = '100%';
-                    img.style.height = '100%';
-                    img.style.objectFit = 'cover';
-                    img.style.borderRadius = '50%';
-                    container.appendChild(img);
-                }
-            });
-            
-            // Set up photo click handlers
-            document.querySelectorAll('.team-photo').forEach(photo => {
-                photo.style.cursor = 'pointer';
-            });
-        });
-
-        // Simple photo editing (rotate)
-        function rotateImage(containerId, degrees) {
-            const container = document.getElementById(containerId);
-            const img = container.querySelector('img');
-            if (img) {
-                img.style.transform = `rotate(${degrees}deg)`;
-            }
-        }
-
-        // Reset photo to placeholder
-        function resetPhoto(containerId) {
-            const container = document.getElementById(containerId);
-            container.innerHTML = '<div class="photo-placeholder">👨‍🌾</div>';
-            
-            // Remove from localStorage
-            const savedPhotos = JSON.parse(localStorage.getItem('teamPhotos')) || {};
-            delete savedPhotos[containerId];
-            localStorage.setItem('teamPhotos', JSON.stringify(savedPhotos));
-            
-            // Reset file input
-            const inputId = containerId.replace('Container', '');
-            document.getElementById(inputId).value = '';
+        // Logout function
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = 'index.html';
         }
     </script>
 </body>
