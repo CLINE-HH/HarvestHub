@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - HarvestHub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">HarvestHub</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="login.html" style="color: #2e7d32; background: rgba(46, 125, 50, 0.1);">Sign In</a></li>
+            <li><a href="signup.html" class="btn btn-primary">Sign Up</a></li>
+        </ul>
+    </nav>
+
+    <div class="auth-container">
+        <h1>Welcome Back! 👋</h1>
+        <p style="text-align: center; color: #666; margin-bottom: 2rem;">Sign in to continue your gardening journey</p>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="your@email.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">
+                Sign In
+            </button>
+        </form>
+        
+        <div class="auth-footer">
+            <p>New here? <a href="signup.html">Create an account</a></p>
+            <p style="margin-top: 1rem;"><a href="index.html">← Back to Home</a></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 HarvestHub. Grow fresh food anywhere.</p>
+    </footer>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

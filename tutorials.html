@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorials - Urban Veggie Gardens</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">🌱 Urban Veggie Gardens</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="videos.html">Videos</a></li>
+            <li><a href="tutorials.html" style="color: #2e7d32; font-weight: bold;">Tutorials</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#" class="btn btn-outline" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Gardening Guides</h1>
+        <p>Detailed written tutorials for successful small-space gardening.</p>
+        
+        <div class="tutorial-grid" id="tutorialsContainer">
+            <!-- Tutorials loaded by JavaScript -->
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Urban Veggie Gardens. Grow food anywhere.</p>
+    </footer>
+
+    <script>
+        // Check login
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (!currentUser) {
+            window.location.href = 'login.html';
+        }
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = 'index.html';
+        }
+
+        // Tutorials data
+        const tutorials = [
+            {
+                title: "Choosing the Right Containers",
+                preview: "Selecting the proper containers is crucial for successful vegetable gardening in small spaces.",
+                fullContent: "Most vegetables need containers at least 12 inches deep. Root vegetables like carrots need 18-24 inches. Ensure containers have adequate drainage holes."
+            },
+            {
+                title: "Soil Mix for Container Gardening",
+                preview: "Create the perfect soil blend for healthy vegetable growth in limited spaces.",
+                fullContent: "Never use garden soil in containers. Use 60% potting mix, 30% compost, and 10% perlite. Most vegetables prefer slightly acidic soil (6.0-6.8 pH)."
+            },
+            {
+                title: "Watering Techniques",
+                preview: "Proper watering schedules and methods for container plants.",
+                fullContent: "Check soil moisture daily. Water when the top inch feels dry. Water until it drains from the bottom. Best time is early morning or late afternoon."
+            },
+            {
+                title: "Best Vegetables for Small Spaces",
+                preview: "Which vegetables grow well in confined areas.",
+                fullContent: "Best choices: lettuce, radishes, cherry tomatoes, peppers, herbs. Look for 'patio' or 'compact' varieties. Avoid large plants like corn or pumpkins."
+            }
+        ];
+
+        // Load tutorials
+        document.addEventListener('DOMContentLoaded', function() {
+            const tutorialsContainer = document.getElementById('tutorialsContainer');
+            
+            tutorials.forEach((tutorial, index) => {
+                const tutorialCard = document.createElement('div');
+                tutorialCard.className = 'tutorial-card';
+                
+                tutorialCard.innerHTML = `
+                    <h3>${tutorial.title}</h3>
+                    <div class="tutorial-preview">${tutorial.preview}</div>
+                    <div class="tutorial-full" id="tutorial-${index}">
+                        ${tutorial.fullContent}
+                    </div>
+                    <button class="btn btn-primary" onclick="toggleTutorial(${index})" style="margin-top: 1rem;">
+                        Read Full Guide
+                    </button>
+                `;
+                
+                tutorialsContainer.appendChild(tutorialCard);
+            });
+        });
+
+        // Toggle tutorial function
+        function toggleTutorial(index) {
+            const tutorialFull = document.getElementById(`tutorial-${index}`);
+            const button = tutorialFull.parentElement.querySelector('button');
+            
+            tutorialFull.classList.toggle('show');
+            
+            if (tutorialFull.classList.contains('show')) {
+                button.textContent = 'Show Less';
+            } else {
+                button.textContent = 'Read Full Guide';
+            }
+        }
+    </script>
+</body>
+</html>

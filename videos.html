@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos - HarvestHub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">🌱 HarvestHub</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="videos.html" style="color: #2e7d32; font-weight: bold;">Videos</a></li>
+            <li><a href="tutorials.html">Tutorials</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#" class="btn btn-outline" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Gardening Video Tutorials</h1>
+        <p>Watch step-by-step guides for container gardening in small spaces.</p>
+        
+        <div class="video-grid" id="videosContainer">
+            <!-- Videos loaded by JavaScript -->
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 HarvestHub. Grow food anywhere.</p>
+    </footer>
+
+    <script>
+        // Check login
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (!currentUser) {
+            window.location.href = 'login.html';
+        }
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = 'index.html';
+        }
+
+        // Videos data with your provided YouTube links
+        const videos = [
+            {
+                id: "Vx4UwjKCW5Q",
+                title: "Small Space Vegetable Gardening for Beginners",
+                description: "Learn the basics of starting your vegetable garden in limited urban spaces. Perfect for complete beginners wanting to grow fresh produce."
+            },
+            {
+                id: "YnCTNF_s4vY",
+                title: "Balcony Garden Setup and Design",
+                description: "Transform your balcony into a productive and beautiful vegetable garden. Learn about container selection, layout, and plant arrangement."
+            },
+            {
+                id: "4HLho4vcJac",
+                title: "Vertical Gardening Techniques",
+                description: "Maximize your growing space with innovative vertical gardening methods. Perfect for apartments and small yards."
+            },
+            {
+                id: "cQSA4BzTQgQ",
+                title: "Container Gardening Complete Guide",
+                description: "Everything you need to know about successful container gardening, from soil preparation to plant selection and maintenance."
+            },
+            {
+                id: "BO8yuSTc3fo",
+                title: "Basic Gardening Fundamentals",
+                description: "Essential gardening knowledge for beginners. Learn about soil, watering, sunlight, and basic plant care for successful vegetable growth."
+            },
+            {
+                id: "m8jQhIR37hY",
+                title: "Common Garden Pests and Solutions",
+                description: "Identify and manage common pests in your urban garden. Learn organic and effective pest control methods for healthy plants."
+            }
+        ];
+
+        // Load videos
+        document.addEventListener('DOMContentLoaded', function() {
+            const videosContainer = document.getElementById('videosContainer');
+            
+            videos.forEach(video => {
+                const videoCard = document.createElement('div');
+                videoCard.className = 'video-card';
+                
+                videoCard.innerHTML = `
+                    <div class="video-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/${video.id}" 
+                            title="${video.title}"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <div class="video-title">${video.title}</div>
+                        <div class="video-description">${video.description}</div>
+                    </div>
+                `;
+                
+                videosContainer.appendChild(videoCard);
+            });
+        });
+    </script>
+</body>
+</html>
